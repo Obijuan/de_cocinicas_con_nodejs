@@ -1,12 +1,14 @@
 var stdin = process.openStdin();
 
+function ask() {
+  console.log("Escribe (Enter fin): ");
+}
+
 ask();
 
-stdin.addListener("data", function(d) {
-  console.log( d.toString().trim() + "? ya sabia yo.... ");
-  ask();
-});
-
-function ask() {
-  console.log('Dime algo aleatorio: ');
+function answer(d) {
+  console.log("Has escrito: ---" + d.toString().trim() + '---');
+  ask()
 }
+
+stdin.addListener("data", answer);
